@@ -227,10 +227,10 @@ bst.add(7);
 bst.add(20);
 bst.add(10);
 
-// console.log(bst.inOrder());
-// console.log(bst.preOrder());
-console.log(bst.postOrder());
-console.log(bst.levelOrder());
+console.log("InOrder "+bst.inOrder());
+console.log("preOrder "+bst.preOrder());
+console.log("postOrder "+bst.postOrder());
+console.log("LevelOrder "+bst.levelOrder());
 // console.log(bst.findMaxHeight());
 // console.log(bst.isBalanced());
 
