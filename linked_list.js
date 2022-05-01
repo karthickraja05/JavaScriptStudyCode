@@ -80,6 +80,9 @@ function LinkedList() {
 	}
 
 	this.addAt = function(index,element){
+		if(index > length){
+			return false;
+		}
 		let newNode = new Node(element);
 		let currentNode = head;
 		if(index === 0){
@@ -109,8 +112,13 @@ function LinkedList() {
 	}
 
 	this.removeAt = function(index){
+		if(index < 0 || index > length){
+			return false;
+		}
 		let currentNode = head;
 		let previousNode;
+
+
 		if(index === 0){
 			head = currentNode.next;
 		}else{
