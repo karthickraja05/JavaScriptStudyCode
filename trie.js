@@ -68,7 +68,6 @@ let Trie = function(){
 let trie = new Trie();
 trie.add('ball');
 trie.add('b');
-trie.add('boobs');
 trie.add('bat');
 trie.add('do');
 trie.add('dorm');
