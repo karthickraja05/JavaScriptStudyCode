@@ -11,7 +11,7 @@ let Node = function(){
 
 let Trie = function(){
 	this.root = new Node();
-
+	let words = [];
 	this.add = function(input,node=this.root){
 		if(input.length === 0){
 			node.setEnd();
@@ -41,27 +41,26 @@ let Trie = function(){
 
 	this.print = function(){
 		let node = this.root;
-		// console.log(node.keys.size);	
-		console.log(node.keys);	
+		words = [];
 		let result = new Array();
 		for (const [key, value] of node.keys) {
 			let temp = `${key}`;
-			console.log(temp)
-			getWord(value);
-		  	// console.log(`${key}: ${value}`)
-		  	break;
+			getWord(value,key);
 		}
+		console.log(words);
 	}
 
-	function getWord(node){
-
+	function getWord(node,root_key){
+		if(node.isEnd()){
+			words.push(root_key);
+		}
 		for (const [key, value] of node.keys) {
-			let temp = `${key}`;
-			console.log(temp)
-		  	console.log(key, value.isEnd(),value.keys.size)
-			getWord(value);
-		  	//console.log(`${key}`)
-		  	break;
+			let newTempKey = root_key+key;
+			if(value.keys.size > 0){
+				getWord(value,newTempKey);	
+			}else if(value.isEnd()){
+				words.push(newTempKey);
+			}
 		}
 	}
 }
@@ -69,6 +68,7 @@ let Trie = function(){
 let trie = new Trie();
 trie.add('ball');
 trie.add('b');
+trie.add('boobs');
 trie.add('bat');
 trie.add('do');
 trie.add('dorm');
